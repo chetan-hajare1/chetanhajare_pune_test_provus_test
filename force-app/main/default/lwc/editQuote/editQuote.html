@@ -2,8 +2,16 @@
 <template>
   <h3 class="slds-page-header__title">Welcome to quote {quoteData.name}!</h3>
   Quote Project Ends On:
-  <lightning-formatted-date-time
-    value={quoteData.endDate}
-    time-zone="UTC"
-  ></lightning-formatted-date-time>
+  <lightning-formatted-date-time value={quoteData.endDate} time-zone="UTC"></lightning-formatted-date-time>
+
+  <lightning-card>
+    <lightning-layout>
+      <div>
+        <lightning-datatable key-field="Id" data={wiredData.data} columns={columns} onsave={handleEdit}
+          draft-values={draftValues} hide-checkbox-column>
+        </lightning-datatable>
+      </div>
+
+    </lightning-layout>
+  </lightning-card>
 </template>
